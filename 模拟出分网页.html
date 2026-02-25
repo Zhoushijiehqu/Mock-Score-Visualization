@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考研成绩单</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            /* 采用更精确的移动端字体栈，并开启抗锯齿以达到微米级还原 */
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #ffffff; /* 截图时保持纯白背景 */
+            display: flex;
+            justify-content: center;
+        }
+        .score-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px; /* 模拟手机屏幕宽度 */
+        }
+        .list-row {
+            display: flex;
+            padding: 16px 20px;
+            font-size: 17px;
+            color: #333333;
+            position: relative;
+            align-items: center; /* 确保垂直方向精确居中 */
+        }
+        /* 还原移动端原生列表的下边距分隔线：线条不贴紧左侧边缘，而是与文字左侧对齐 */
+        .list-row::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 0;
+            height: 0.5px; /* 还原 Retina 屏幕的物理极细线 */
+            background-color: #ebebeb;
+        }
+        .list-row:last-of-type::after {
+            display: none; /* 最后一行去掉边框 */
+        }
+        .label-col {
+            width: 105px; /* 精确对齐左侧列宽 */
+            flex-shrink: 0;
+            color: #333333; /* 原图标签颜色较深 */
+        }
+        .value-col {
+            flex-grow: 1;
+            color: #555555; /* 原图数值颜色略微浅一点点 */
+            letter-spacing: 0.3px; /* 字符间距微调，还原截图中的视觉效果 */
+        }
+        .footer-note {
+            background-color: #f7f7f7; /* 贴合原图灰色背景，去除顶部白边 */
+            padding: 18px 20px 25px 20px;
+            font-size: 14px;
+            color: #888888; /* 底部字体颜色更接近原图的浅灰 */
+            line-height: 1.6;
+        }
+        .footer-note p {
+            margin-bottom: 8px;
+        }
+        .footer-note p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="score-card">
+        <!-- 成绩列表区 -->
+        <div class="list-row">
+            <div class="label-col">总分</div>
+            <div class="value-col">500</div>
+        </div>
+        
+        <div class="list-row">
+            <div class="label-col">第一门</div>
+            <div class="value-col">(101)思想政治理论: 100</div>
+        </div>
+        
+        <!-- 英语和数学完美还原了原图冒号前的空格间距 -->
+        <div class="list-row">
+            <div class="label-col">第二门</div>
+            <div class="value-col">(201)英语（一） : 100</div>
+        </div>
+        
+        <div class="list-row">
+            <div class="label-col">第三门</div>
+            <div class="value-col">(303)数学（三） : 150</div>
+        </div>
+        
+        <div class="list-row">
+            <div class="label-col">第四门</div>
+            <div class="value-col">(811)经济学基础: 150</div>
+        </div>
+        
+        <div class="list-row">
+            <div class="label-col">备注</div>
+            <div class="value-col">无</div>
+        </div>
+        
+        <!-- 底部说明区 -->
+        <div class="footer-note">
+            <p>本系统所有数据均为招生单位提供，招生单位对查询结果负责解释。</p>
+            <p>若查询的成绩为负值，表示有缺考、违纪等情况。若仍对查询结果有疑问，请咨询相应的招生单位。</p>
+        </div>
+    </div>
+</body>
+</html>
